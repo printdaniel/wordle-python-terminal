@@ -36,4 +36,5 @@ class GuessWord:
     
     def apply_guesses(self):
         self.apply_greens()
-        print(self.w_chars)
+        self.post_guess_w_str = "".join(self.w_chars)
+        print(self.post_guess_w_str)
