@@ -1,4 +1,7 @@
 import wordle
+import os
+
+os.system("cls") if os.name == "nt" else os.system("clear")
 
 begin_message = """
 '##:::::'##::'#######::'########::'########::'##:::::::'########:
@@ -17,13 +20,20 @@ if __name__ == "__main__":
         f.write(wordle.CHOSEN_WORD)
     while True:
         guess = wordle.GuessWord(
-        w_str = input(">")
+        w_str = input(f"[{wordle.GuessWord.counter}]")
     
 
         )
+        if guess.w_str == "h":
+            list_values = list(wordle.GuessWord.alphabet.values())
+            for element in wordle.GuessWord.alphabet.values():
+                print(element, end=" " if list_values[-1] != element else "\n" )
 
         if guess.is_valid():
             guess.apply_guesses()
+            guess.check_perfect_guess()
+            guess.check_game_loss()
             guess.jump_turn()
+
  
 
