@@ -5,6 +5,8 @@ from valid_words import valid_words
 CHOSEN_WORD = random.choice(valid_words)
 GUESS_COUNT = 6
 
+#Color for terminal characters
+
 class Color:
     PREFIX = '\033'
     BASE = "\033[0m"
@@ -13,7 +15,7 @@ class Color:
     GREEN = "\033[92m"
     YELLOW = "\033[93m"
     PERSISTENT_COLORS = [RED,GREEN]
-    
+
 
 class GuessWord:
     counter = 1
@@ -91,7 +93,7 @@ class GuessWord:
             return 
 
         # Do not modify key value paris that are already green or red
-        
+
         older_value =GuessWord.alphabet.get(k,"") 
         modify_colors = True
         for c in Color.PERSISTENT_COLORS:
